@@ -127,16 +127,6 @@ def check_virustotal(url):
         logger.error(f"VirusTotal: ошибка при проверке {url}: {str(e)}")
         return False
 
-# Проверяем через VT API
-'''def check_virustotal(url):
-    headers = {"x-apikey": VIRUSTOTAL_API_KEY}
-    url_id = base64.urlsafe_b64encode(url.encode()).decode().strip("=")
-    response = requests.get(f"https://www.virustotal.com/api/v3/urls/{url_id}", headers=headers)
-    if response.json()['data']['attributes']['last_analysis_stats']['malicious'] > 1:
-        return True
-    return False'''
-
-
 # Получение даты создания домена
 def get_domain_creation_date(domain):
     url = f"https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey={WHOISXML_API_KEY}&domainName={domain}&outputFormat=JSON"
